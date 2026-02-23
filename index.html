@@ -112,6 +112,24 @@
         });
         window.toggleChat = () => chat.toggle();
     </script>
+    <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    const chat = createChat({
+        webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat', 
+        title: 'Global DZ Support 🤖',
+        welcomeMessage: 'شبيك لبيك، راني هنا باش نعاونك في طلبيتك! 😄',
+        placeholder: 'اكتب طلبك هنا...',
+        showWelcomeScreen: false, // هادي باش يدخل ديريكت في الهدرة
+        i18n: {
+            en: {
+                placeholder: 'اكتب رسالتك هنا...',
+                sendButtonText: 'إرسال',
+            }
+        }
+    });
+    window.toggleChat = () => chat.toggle();
+</script>
+
 
 </body>
 </html>
