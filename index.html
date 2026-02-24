@@ -108,15 +108,13 @@ import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bun
 const chat = createChat({
     webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat',
     title: 'Global DZ Support 🤖',
-    showWelcomeScreen: false
+    showWelcomeScreen: false,
+    mode: 'window' // مهم باش ما يبانش الشات تلقائياً
 });
 
-window.orderFromCard = (cardElement) => {
-    const productName = cardElement.querySelector("h4").innerText;
+// دالة فتح الشات فقط
+window.toggleChat = () => {
     chat.open();
-    setTimeout(() => {
-        chat.sendMessage("أريد شراء " + productName);
-    }, 500);
 };
 </script>
 
