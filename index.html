@@ -73,6 +73,19 @@ class="bg-sky-500 text-white px-6 py-2 rounded-xl">
 <footer class="bg-sky-200 p-6 text-center mt-20">
 © 2026 Global DZ Store
 </footer>
+  <script type="module">
+import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+const chat = createChat({
+    webhookUrl: "https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat",
+    mode: "window",
+    showWelcomeScreen: false
+});
+
+window.openChat = () => {
+    chat.open();
+};
+</script>
 
 <script>
 
