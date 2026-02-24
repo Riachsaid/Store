@@ -178,6 +178,36 @@
 
     window.toggleChat = () => chat.toggle();
 </script>
+    
+<button onclick="buyProduct('ساعة ذكية Ultra')" class="w-full btn-grad text-white py-4 rounded-xl font-black">اطلب الآن</button>
+
+<button onclick="buyProduct('حذاء رياضي Premium')" class="w-full btn-grad text-white py-4 rounded-xl font-black">اطلب الآن</button>
+
+<div onclick="buyProduct('اشتراك نيتفليكس 4K')" class="cursor-pointer ..."> ... </div>
+
+<script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    
+    const chat = createChat({
+        webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat', 
+        title: 'Global DZ Support 🤖',
+        welcomeMessage: 'مرحباً بك! راني هنا باش نسجلك الطلبية تاعك، واش من منتج عجبك؟',
+        placeholder: 'اكتب رسالتك هنا...',
+        showWelcomeScreen: false,
+    });
+
+    // الوظيفة اللي تخبر الـ AI بالمنتج
+    window.buyProduct = (productName) => {
+        // نفتحو الشات أولاً
+        chat.toggle();
+        // نستناو شوية باش يتفتح ويبعت الميساج
+        setTimeout(() => {
+            chat.sendMessage(`راني باغي نشري: ${productName}`);
+        }, 500);
+    };
+
+    window.toggleChat = () => chat.toggle();
+</script>
 
 </body>
 </html>
