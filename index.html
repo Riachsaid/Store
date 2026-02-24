@@ -12,20 +12,21 @@
 n8n-chat-widget { z-index:9999 !important; }
 
 body{
-font-family:'Cairo',sans-serif;
-background:#f0f9ff;
+  font-family:'Cairo',sans-serif;
+  background:#f0f9ff;
 }
 
 .gradient-blue{
-background:linear-gradient(135deg,#0ea5e9 0%,#38bdf8 100%);
+  background:linear-gradient(135deg,#0ea5e9 0%,#38bdf8 100%);
 }
 
 .product-card:hover{
-transform:translateY(-5px);
-transition:.3s;
+  transform:translateY(-5px);
+  transition:.3s;
 }
 </style>
 </head>
+
 <body>
 
 <header class="gradient-blue text-white p-4 shadow-lg sticky top-0 z-50">
@@ -59,20 +60,20 @@ transition:.3s;
 import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
 const chat = createChat({
-webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat',
-mode: 'window',
-showWelcomeScreen:false
+  webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat',
+  mode: 'window',
+  showWelcomeScreen: false
 });
 
-/* نخفي الأيقونة نهائياً */
-setTimeout(()=>{
-const widget = document.querySelector('n8n-chat-widget');
-if(widget) widget.style.display='none';
-},1000);
+/* إخفاء الأيقونة نهائياً */
+window.addEventListener("load", () => {
+  const widget = document.querySelector("n8n-chat-widget");
+  if (widget) widget.style.display = "none";
+});
 
-/* دالة فتح الشات */
-window.openChat = () => {
-chat.open();
+/* فتح الشات عند الضغط */
+window.openChat = function() {
+  chat.open();
 };
 </script>
 
