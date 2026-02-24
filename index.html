@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>Global Store</title>
+<title>Global DZ Store PRO</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -17,7 +17,17 @@ transition:.3s;
 }
 
 .product-card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
+}
+
+.cart-box{
+position:fixed;
+bottom:20px;
+left:20px;
+background:white;
+padding:15px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.2);
 }
 </style>
 
@@ -26,34 +36,71 @@ transform:translateY(-6px);
 <body>
 
 <header class="bg-sky-500 text-white p-6 text-center text-2xl font-bold">
-Global Store 🇩🇿
+Global DZ Store PRO 🇩🇿
 </header>
 
 <div class="container mx-auto p-10 grid md:grid-cols-2 gap-8">
 
-<!-- Product 1 -->
+<!-- Product List -->
 <div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h2 class="text-xl font-bold mb-3">ساعة ذكية Ultra</h2>
+<h2 class="text-xl font-bold">ساعة ذكية Ultra</h2>
 <p class="text-sky-600 text-2xl font-bold mb-4">8500 DA</p>
-<button class="bg-sky-500 text-white px-6 py-2 rounded-xl">
-شراء الآن
+<button onclick="addToCart('ساعة ذكية Ultra',8500)"
+class="bg-sky-500 text-white px-6 py-2 rounded-xl">
+🛒 إضافة للسلة
 </button>
 </div>
 
-<!-- Product 2 -->
 <div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h2 class="text-xl font-bold mb-3">Netflix 4K</h2>
+<h2 class="text-xl font-bold">Netflix 4K</h2>
 <p class="text-sky-600 text-2xl font-bold mb-4">1200 DA</p>
-<button class="bg-sky-500 text-white px-6 py-2 rounded-xl">
-شراء الآن
+<button onclick="addToCart('Netflix 4K',1200)"
+class="bg-sky-500 text-white px-6 py-2 rounded-xl">
+🛒 إضافة للسلة
 </button>
 </div>
 
+</div>
+
+<!-- Cart Box -->
+<div class="cart-box">
+<h3 class="font-bold mb-2">🛍️ السلة</h3>
+<div id="cartItems"></div>
+<hr class="my-2">
+<p class="font-bold">المجموع: <span id="totalPrice">0</span> DA</p>
 </div>
 
 <footer class="bg-sky-200 p-6 text-center mt-20">
-© 2026 Global Store
+© 2026 Global DZ Store
 </footer>
+
+<script>
+
+let cart = [];
+let total = 0;
+
+function addToCart(name, price){
+
+cart.push(name);
+total += price;
+
+updateCart();
+}
+
+function updateCart(){
+
+let html = "";
+
+cart.forEach(item=>{
+html += "✅ " + item + "<br>";
+});
+
+document.getElementById("cartItems").innerHTML = html;
+document.getElementById("totalPrice").innerText = total;
+
+}
+
+</script>
 
 </body>
 </html>
