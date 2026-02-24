@@ -2,81 +2,58 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global DZ Store</title>
+<title>Global Store</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet"/>
 
 <style>
-n8n-chat-widget { z-index:9999 !important; }
-
 body{
-  font-family:'Cairo',sans-serif;
-  background:#f0f9ff;
+font-family:'Cairo',sans-serif;
+background:#f0f9ff;
 }
 
-.gradient-blue{
-  background:linear-gradient(135deg,#0ea5e9 0%,#38bdf8 100%);
+.product-card{
+transition:.3s;
 }
 
 .product-card:hover{
-  transform:translateY(-5px);
-  transition:.3s;
+transform:translateY(-6px);
 }
 </style>
+
 </head>
 
 <body>
 
-<header class="gradient-blue text-white p-4 shadow-lg sticky top-0 z-50">
-<h1 class="text-2xl font-bold text-center">GLOBAL STORE</h1>
+<header class="bg-sky-500 text-white p-6 text-center text-2xl font-bold">
+Global Store 🇩🇿
 </header>
 
-<div class="container mx-auto px-4 py-10">
+<div class="container mx-auto p-10 grid md:grid-cols-2 gap-8">
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+<!-- Product 1 -->
 <div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h4 class="text-xl font-bold mb-4">ساعة ذكية Ultra</h4>
-<p class="text-2xl font-bold text-sky-600 mb-4">8500 DA</p>
-<button onclick="openChat()" class="bg-sky-600 text-white px-6 py-2 rounded-xl font-bold">
-اطلب الآن
+<h2 class="text-xl font-bold mb-3">ساعة ذكية Ultra</h2>
+<p class="text-sky-600 text-2xl font-bold mb-4">8500 DA</p>
+<button class="bg-sky-500 text-white px-6 py-2 rounded-xl">
+شراء الآن
 </button>
 </div>
 
+<!-- Product 2 -->
 <div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h4 class="text-xl font-bold mb-4">Netflix 4K</h4>
-<p class="text-2xl font-bold text-sky-600 mb-4">1200 DA</p>
-<button onclick="openChat()" class="bg-sky-600 text-white px-6 py-2 rounded-xl font-bold">
-اطلب الآن
+<h2 class="text-xl font-bold mb-3">Netflix 4K</h2>
+<p class="text-sky-600 text-2xl font-bold mb-4">1200 DA</p>
+<button class="bg-sky-500 text-white px-6 py-2 rounded-xl">
+شراء الآن
 </button>
 </div>
 
 </div>
-</div>
-  
-<script type="module">
-import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-const chat = createChat({
-  webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat?ngrok-skip-browser-warning=true',
-  mode: 'window',
-  showWelcomeScreen: false
-});
-</script>
-
-/* إخفاء الأيقونة نهائياً */
-window.addEventListener("load", () => {
-  const widget = document.querySelector("n8n-chat-widget");
-  if (widget) widget.style.display = "none";
-});
-
-/* فتح الشات عند الضغط */
-window.openChat = function() {
-  chat.open();
-};
-</script>
+<footer class="bg-sky-200 p-6 text-center mt-20">
+© 2026 Global Store
+</footer>
 
 </body>
 </html>
