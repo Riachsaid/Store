@@ -1,119 +1,132 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>Global DZ Store PRO</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-body{
-font-family:'Cairo',sans-serif;
-background:#f0f9ff;
-}
-
-.product-card{
-transition:.3s;
-}
-
-.product-card:hover{
-transform:translateY(-8px);
-}
-
-.cart-box{
-position:fixed;
-bottom:20px;
-left:20px;
-background:white;
-padding:15px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,0.2);
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global DZ Store | متجرك العالمي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #e2e8f0; }
+        .product-card:hover { transform: translateY(-12px); border-color: #0ea5e9; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .btn-grad { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); transition: 0.3s; }
+        .btn-grad:hover { opacity: 0.9; transform: scale(1.05); }
+        .shimmer { background: linear-gradient(90deg, #0ea5e9, #38bdf8, #0ea5e9); background-size: 200% auto; animation: shine 3s linear infinite; }
+        @keyframes shine { to { background-position: 200% center; } }
+    </style>
 </head>
+<body class="text-slate-800">
 
-<body>
+    <header class="glass sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-bolt text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-black italic text-blue-900 tracking-tighter">GLOBAL STORE</h1>
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-slate-600 uppercase text-sm">
+                <a href="#physical" class="hover:text-blue-600 transition">المنتجات</a>
+                <a href="#digital" class="hover:text-blue-600 transition">الاشتراكات</a>
+            </div>
+            <div class="bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold border border-blue-100 shadow-sm">
+                <span class="relative flex h-2 w-2 inline-block ml-1">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                متصل الآن | 600MB
+            </div>
+        </div>
+    </header>
 
-<header class="bg-sky-500 text-white p-6 text-center text-2xl font-bold">
-Global DZ Store PRO 🇩🇿
-</header>
+    <section class="relative py-20 px-4 overflow-hidden bg-white">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-sky-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto text-center relative z-10">
+            <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm font-black mb-4 inline-block uppercase tracking-widest">مرحباً بك في عالم الفخامة</span>
+            <h2 class="text-5xl md:text-7xl font-black text-slate-900 mb-6 leading-tight">اشرِي سلعِتك <br><span class="text-blue-600 italic">بضغطة واحدة!</span></h2>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-10 font-medium">نوفر لك أفضل المنتجات العالمية والاشتراكات الرقمية بأفضل الأسعار في الجزائر مع دعم فني ذكي يرافقك في كل خطوة.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#physical" class="btn-grad text-white px-8 py-4 rounded-2xl font-black shadow-xl shadow-blue-200">ابدأ التسوق</a>
+                <button onclick="toggleChat()" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black hover:bg-slate-800 transition shadow-xl">تحدث مع البائع</button>
+            </div>
+        </div>
+    </section>
 
-<div class="container mx-auto p-10 grid md:grid-cols-2 gap-8">
+    <div class="container mx-auto px-4 py-12">
+        
+        <div class="flex items-center gap-4 mb-10">
+            <h3 id="physical" class="text-3xl font-black text-slate-900 uppercase">🛍️ السلع والأجهزة</h3>
+            <div class="h-1 flex-grow bg-slate-100 rounded-full"></div>
+        </div>
 
-<!-- Product List -->
-<div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h2 class="text-xl font-bold">ساعة ذكية Ultra</h2>
-<p class="text-sky-600 text-2xl font-bold mb-4">8500 DA</p>
-<button onclick="addToCart('ساعة ذكية Ultra',8500)"
-class="bg-sky-500 text-white px-6 py-2 rounded-xl">
-🛒 إضافة للسلة
-</button>
-</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <div class="product-card bg-white rounded-[2rem] overflow-hidden p-3">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" class="w-full h-72 object-cover rounded-[1.5rem]">
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg font-black text-blue-600 text-sm shadow-sm">8,500 DA</div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-black mb-2 text-slate-800 tracking-tight">ساعة ذكية Ultra Series</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">الجيل الجديد مع شاشة AMOLED وضمان سنة كاملة. رفيقتك المثالية.</p>
+                    <button onclick="toggleChat()" class="w-full btn-grad text-white py-4 rounded-xl font-black flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-basket"></i> اطلب الآن عبر الشات
+                    </button>
+                </div>
+            </div>
 
-<div class="bg-white p-6 rounded-2xl shadow product-card text-center">
-<h2 class="text-xl font-bold">Netflix 4K</h2>
-<p class="text-sky-600 text-2xl font-bold mb-4">1200 DA</p>
-<button onclick="addToCart('Netflix 4K',1200)"
-class="bg-sky-500 text-white px-6 py-2 rounded-xl">
-🛒 إضافة للسلة
-</button>
-</div>
+            <div class="product-card bg-white rounded-[2rem] overflow-hidden p-3 border-blue-200 border-2 shadow-blue-50">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" class="w-full h-72 object-cover rounded-[1.5rem]">
+                    <span class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-lg font-black text-xs uppercase animate-pulse">الاكثر مبيعاً</span>
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg font-black text-blue-600 text-sm">4,200 DA</div>
+                </div>
+                <div class="p-6">
+                    <h4 class="text-xl font-black mb-2 text-slate-800 tracking-tight">حذاء رياضي Premium 2026</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">راحة وأناقة تدوم طويلاً. مناسب للرياضة والمشي اليومي بمقاسات حقيقية.</p>
+                    <button onclick="toggleChat()" class="w-full btn-grad text-white py-4 rounded-xl font-black flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-basket"></i> اطلب الآن عبر الشات
+                    </button>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <div class="flex items-center gap-4 mb-10">
+            <h3 id="digital" class="text-3xl font-black text-slate-900 uppercase">🎮 بطاقات ديجيتال</h3>
+            <div class="h-1 flex-grow bg-slate-100 rounded-full"></div>
+        </div>
 
-<!-- Cart Box -->
-<div class="cart-box">
-<h3 class="font-bold mb-2">🛍️ السلة</h3>
-<div id="cartItems"></div>
-<hr class="my-2">
-<p class="font-bold">المجموع: <span id="totalPrice">0</span> DA</p>
-</div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div onclick="toggleChat()" class="group cursor-pointer bg-white p-8 rounded-[2rem] text-center border-2 border-slate-100 hover:border-red-500 transition-all duration-300 shadow-sm">
+                <div class="w-20 h-20 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                    <i class="fab fa-netflix text-4xl"></i>
+                </div>
+                <h4 class="font-black text-slate-800 mb-1">Netflix 4K</h4>
+                <div class="text-red-600 font-black text-lg">1200 DA</div>
+            </div>
 
-<footer class="bg-sky-200 p-6 text-center mt-20">
-© 2026 Global DZ Store
-</footer>
-  <script type="module">
-import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+            <div onclick="toggleChat()" class="group cursor-pointer bg-white p-8 rounded-[2rem] text-center border-2 border-slate-100 hover:border-yellow-500 transition-all duration-300 shadow-sm">
+                <div class="w-20 h-20 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                    <i class="fas fa-gamepad text-4xl"></i>
+                </div>
+                <h4 class="font-black text-slate-800 mb-1">PUBG Mobile</h4>
+                <div class="text-yellow-600 font-black text-lg">1800 DA</div>
+            </div>
 
-const chat = createChat({
-    webhookUrl: "https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat",
-    mode: "window",
-    showWelcomeScreen: false
-});
+            <div onclick="toggleChat()" class="group cursor-pointer bg-white p-8 rounded-[2rem] text-center border-2 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-sm">
+                <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                    <i class="fab fa-playstation text-4xl"></i>
+                </div>
+                <h4 class="font-black text-slate-800 mb-1">PlayStation</h4>
+                <div class="text-blue-600 font-black text-lg">2400 DA</div>
+            </div>
 
-window.openChat = () => {
-    chat.open();
-};
-</script>
-
-<script>
-
-let cart = [];
-let total = 0;
-
-function addToCart(name, price){
-
-cart.push(name);
-total += price;
-
-updateCart();
-}
-
-function updateCart(){
-
-let html = "";
-
-cart.forEach(item=>{
-html += "✅ " + item + "<br>";
-});
-
-document.getElementById("cartItems").innerHTML = html;
-document.getElementById("totalPrice").innerText = total;
-
-}
-
-</script>
-
-</body>
-</html>
+            <div onclick="toggleChat()" class="group cursor-pointer bg-white p-8 rounded-[2rem] text-center border-2 border-slate-100 hover:border-pink-500 transition-all duration-300 shadow-sm">
+                <div class="w-20 h-20 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                    
