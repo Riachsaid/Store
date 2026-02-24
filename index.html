@@ -160,16 +160,24 @@
     </footer>
 
     <script type="module">
-        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-        const chat = createChat({
-            webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook-test/chat', 
-            title: 'Global DZ Support 🤖',
-            welcomeMessage: 'شبيك لبيك، راني هنا باش نعاونك في طلبيتك! 😄🧤',
-            placeholder: 'اكتب طلبك هنا...',
-            showWelcomeScreen: false,
-        });
-        window.toggleChat = () => chat.toggle();
-    </script>
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    
+    const chat = createChat({
+        webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat', 
+        title: 'Global DZ Support 🤖',
+        welcomeMessage: 'مرحباً بك! أنا مساعدك الذكي، كيف أساعدك اليوم؟',
+        placeholder: 'اكتب رسالتك هنا...',
+        showWelcomeScreen: false,
+    });
+
+    // هادي هي الوظيفة اللي تخلي الـ AI يعرف واش من منتج كليكا عليه
+    window.buyProduct = (productName) => {
+        chat.toggle(); // يفتح الشات
+        chat.sendMessage(`راني باغي نشري: ${productName}`); // يبعت اسم السلعة ديريكت
+    };
+
+    window.toggleChat = () => chat.toggle();
+</script>
 
 </body>
 </html>
