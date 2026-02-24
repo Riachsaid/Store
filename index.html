@@ -129,4 +129,47 @@
 
             <div onclick="toggleChat()" class="group cursor-pointer bg-white p-8 rounded-[2rem] text-center border-2 border-slate-100 hover:border-pink-500 transition-all duration-300 shadow-sm">
                 <div class="w-20 h-20 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
-                    
+                    <i class="fas fa-fire text-4xl"></i>
+                </div>
+                <h4 class="font-black text-slate-800 mb-1">Free Fire</h4>
+                <div class="text-pink-600 font-black text-lg">350 DA</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white pt-20 pb-10 mt-20 rounded-t-[3rem]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-8 italic">GLOBAL STORE</h2>
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <div class="bg-white/10 px-6 py-3 rounded-2xl flex flex-col items-center min-w-[120px]">
+                    <span class="text-xs text-slate-400 mb-1 uppercase font-bold tracking-widest">الدفع</span>
+                    <span class="font-black text-sm uppercase">Baridimob</span>
+                </div>
+                <div class="bg-white/10 px-6 py-3 rounded-2xl flex flex-col items-center min-w-[120px]">
+                    <span class="text-xs text-slate-400 mb-1 uppercase font-bold tracking-widest">الدفع</span>
+                    <span class="font-black text-sm uppercase">PayPal</span>
+                </div>
+                <div class="bg-white/10 px-6 py-3 rounded-2xl flex flex-col items-center min-w-[120px]">
+                    <span class="text-xs text-slate-400 mb-1 uppercase font-bold tracking-widest">الدفع</span>
+                    <span class="font-black text-sm uppercase">RedotPay</span>
+                </div>
+            </div>
+            <div class="h-px bg-white/10 w-full mb-8"></div>
+            <p class="text-slate-400 text-sm font-medium">© 2026 • تم التطوير بالذكاء والنعناع الجزائري 🇩🇿</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+        const chat = createChat({
+            webhookUrl: 'https://uncorrectable-jeane-ungrudged.ngrok-free.dev/webhook/chat', 
+            title: 'Global DZ Support 🤖',
+            welcomeMessage: 'شبيك لبيك، راني هنا باش نعاونك في طلبيتك! 😄🧤',
+            placeholder: 'اكتب طلبك هنا...',
+            showWelcomeScreen: false,
+        });
+        window.toggleChat = () => chat.toggle();
+    </script>
+
+</body>
+</html>
