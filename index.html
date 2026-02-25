@@ -160,6 +160,19 @@
     </footer>
 
     <script type="module">
+
+        <button onclick="orderProduct('ساعة ذكية')" class="your-button-style">اطلب الآن</button>
+<script>
+function orderProduct(productName) {
+    // نفتحوا الشات
+    if (window.ChatWidget) {
+        window.ChatWidget.open();
+        // نبعتوا الكود لي تفاهمنا عليه في الـ Prompt
+        window.ChatWidget.sendMessage("ORDER_START: " + productName);
+    }
+}
+</script>
+
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
     
     const chat = createChat({
