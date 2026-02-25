@@ -208,6 +208,27 @@
 
     window.toggleChat = () => chat.toggle();
 </script>
+    <script>
+function orderProduct(productName) {
+    // 1. نفتحوا الشات آلياً (بفرض أن الويدجت تخدم بـ toggle ولا open)
+    // ملاحظة: الـ ID تاع الشات يختلف على حساب الواجهة اللي راك مركبها
+    if (window.ChatWidget) {
+        window.ChatWidget.open(); 
+        
+        // 2. نرسل الميساج للـ n8n بلا ما يكتبه الزبون
+        window.ChatWidget.sendMessage("راني باغي نشري: " + productName);
+    } else {
+        // إذا كنت مركب نيفو (N8N Chat) العادي، جرب هادي:
+        const chatInput = document.querySelector('textarea'); // حوس على خانة الكتابة
+        if (chatInput) {
+            chatInput.value = "راني باغي نشري: " + productName;
+            // نضغطو على زر الإرسال آلياً
+            document.querySelector('button[type="submit"]').click();
+        }
+    }
+}
+</script>
+
 
 </body>
 </html>
